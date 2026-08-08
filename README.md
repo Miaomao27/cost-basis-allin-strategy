@@ -33,6 +33,21 @@ This is an **event-driven** upgrade to the permanent portfolio's *calendar-drive
 
 ---
 
+## 📈 Data Sources
+
+Each asset uses its longest available daily history (starting as early as 2004, ending as late as August 2026), spanning the 2015 crash, 2018 bear, 2020 COVID, 2022 bear, and 2024–25 all-time highs.
+
+| Asset | Ticker | Data Source | Start | End | Bars |
+|-------|--------|-------------|:-----:|:---:|:----:|
+| CSI Dividend Low Vol 50 | 000922.SH | Tencent `stock_zh_index_daily_tx` | 2008-08-04 | 2026-08-07 | 4,376 |
+| NASDAQ-100 | ^NDX | Sina `index_us_stock_sina` | 2014-02-18 | 2026-08-06 | 3,135 |
+| S&P 500 | ^SPX | Sina `index_us_stock_sina` | 2004-01-02 | 2026-08-06 | 5,687 |
+| Shanghai Gold | AU.SHF | akshare futures main | 2009-01-05 | 2026-08-07 | 4,263 |
+
+> Note: Nasdaq/S&P use price-index series (ex-dividend); differing history lengths reflect data availability — each asset is backtested on its own full series, not truncated to a common interval.
+
+---
+
 ## 📊 Results
 
 | Asset | Best (W, d, p) | All-in Calmar | Buy-&-Hold Calmar | All-in CAGR | All-in MaxDD |
