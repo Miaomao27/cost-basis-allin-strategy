@@ -36,18 +36,18 @@ The contributions of this paper are summarized as follows: (1) it is the first t
 
 ### 2.1 Data Sources and Sample Description
 
-Four representative assets with distinct volatility characteristics and market affiliations are selected, covering full-history daily data from early 2015 through mid-2026. The sample spans complete market cycles including the 2015 Chinese stock market crash, the 2018 bear market, the 2020 COVID shock, the 2022 downturn, and the 2024–2025 all-time-high regime.
+Four representative assets with distinct volatility characteristics and market affiliations are selected, covering the longest available historical daily data for each asset (beginning as early as 2004 and ending as late as August 2026). The sample spans complete market cycles including the 2015 Chinese stock market crash, the 2018 bear market, the 2020 COVID shock, the 2022 downturn, and the 2024–2025 all-time-high regime. The data source, start date, end date, and sample size for each asset are detailed in Table 1.
 
-**Table 1  Asset Data Overview**
+**Table 1  Asset Data Sources and Sample Description**
 
-| Asset | Ticker | Market | Volatility Profile | Data Start | Daily Bars |
-|-------|--------|--------|---------------------|------------|-------------|
-| CSI Dividend Low Vol 50 | 000922.SH | A-shares | Low volatility, slow declines and recoveries | 2015-01-05 | ~2,800 |
-| NASDAQ-100 | ^NDX | US equities | High volatility, sharp rises and falls | 2015-01-02 | ~2,900 |
-| S&P 500 | ^SPX | US equities | Medium-high volatility, secular bull | 2015-01-02 | ~2,900 |
-| Shanghai Gold Futures | AU.SHF | SHFE | Medium volatility, slow bull with sharp corrections | 2015-01-05 | ~2,800 |
+| Asset | Ticker | Market | Volatility Profile | Data Source | Start Date | End Date | Daily Bars |
+|-------|--------|--------|---------------------|-------------|------------|----------|:----------:|
+| CSI Dividend Low Vol 50 | 000922.SH | A-shares | Low volatility, slow declines and recoveries | Tencent `stock_zh_index_daily_tx` | 2008-08-04 | 2026-08-07 | 4,376 |
+| NASDAQ-100 | ^NDX | US equities | High volatility, sharp rises and falls | Sina `index_us_stock_sina` | 2014-02-18 | 2026-08-06 | 3,135 |
+| S&P 500 | ^SPX | US equities | Medium-high volatility, secular bull | Sina `index_us_stock_sina` | 2004-01-02 | 2026-08-06 | 5,687 |
+| Shanghai Gold Futures | AU.SHF | SHFE | Medium volatility, slow bull with sharp corrections | akshare futures main | 2009-01-05 | 2026-08-07 | 4,263 |
 
-The dataset spans A-shares (CSI Dividend Low Vol 50), US equities (NASDAQ-100, S&P 500), and commodity futures (Shanghai gold), ensuring that the strategy is tested on assets with heterogeneous pricing mechanisms, volatility structures, and cyclical rhythms. It should be noted that the NASDAQ-100 and S&P 500 series are price indices (excluding dividends), so their buy-and-hold returns are conservatively biased downward.
+The dataset spans A-shares (CSI Dividend Low Vol 50), US equities (NASDAQ-100, S&P 500), and commodity futures (Shanghai gold), ensuring that the strategy is tested on assets with heterogeneous pricing mechanisms, volatility structures, and cyclical rhythms. Two notes: (1) the NASDAQ-100 and S&P 500 series are price indices (excluding dividends), so their buy-and-hold returns are conservatively biased downward; (2) the differing history lengths reflect data availability—the backtest engine runs each asset on its own full available series rather than truncating to a common interval.
 
 ### 2.2 Mathematical Definition of the DCA Cost Line
 
